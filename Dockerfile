@@ -11,6 +11,7 @@ LABEL description "Crontab-UI docker"
 RUN   apk --no-cache add \
       wget \
       curl \
+      docker \
       nodejs \
       supervisor
 
@@ -27,5 +28,4 @@ ENV   CRON_PATH /etc/crontabs
 ENV   CRON_IN_DOCKER true
 
 EXPOSE $PORT
-
 CMD ["supervisord", "-c", "/etc/supervisord.conf"]
